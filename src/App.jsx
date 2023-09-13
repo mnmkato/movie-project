@@ -1,12 +1,12 @@
 import './App.css'
 import logo from './assets/logo.svg'
 import menu from './assets/menu.svg'
-
 import React, { useState, useEffect } from 'react';
 import MovieSearch from './moviesearch'
 import MovieDetails from './moviedetails'
 import axios from 'axios';
 import TopMovies from './movieposter';
+import Footer from './footer';
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -53,8 +53,9 @@ function App() {
       <div classcdName="featured-header">
       <h1>Top 10 Movies</h1>
       <p>See More  &gt; </p>
-      </div>
-        <TopMovies/>
+    </div>
+    <TopMovies/>
+    <Footer/>
     </div>
     </>
    ); 

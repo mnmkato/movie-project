@@ -73,7 +73,16 @@
 .poster-movie>h3,.poster-movie>p{
   margin: 0
 }
-
+.socials-div{
+  display: flex;
+  justify-content: center;
+}
+.socials-div>img{
+  margin: 1rem;
+  }
+.terms-div>a{
+  margin: 1rem;
+}
 
 
 
