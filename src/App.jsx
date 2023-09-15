@@ -4,7 +4,7 @@ import MovieDetail from './MovieDetail';
 
 function App() {
   return (
-    <Router basename='/movie-project/'>
+    <Router>
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route path="/movies/:id" element={<MovieDetail/>} />
