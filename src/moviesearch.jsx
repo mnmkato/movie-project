@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'font-awesome/css/font-awesome.min.css';
+import { Link } from 'react-router-dom';
 
 const MovieSearch = () => {
 
@@ -21,25 +23,37 @@ const MovieSearch = () => {
           .catch((error) => {
             console.error('Error fetching data:', error);
           });
+      } else{
+        setMovies([]);
       }
     }, [query]);
   return (
     <div>
      <form className='search-form' action="/search" method="get">
         <input type="search"
+        className='search-input'
           id="search" 
           name="q" 
           placeholder="What do you want to watch?"
+          autoComplete='off'
           value={query} 
           onChange={(e) => setQuery(e.target.value)}
          />
-        <input type="submit" />
-        <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+        <button type="submit" className="search-button">
+        <i className="fa fa-search"></i>
+        </button>
     </form>
+    <div className='results-list'>
+        {movies.slice(0,5).map((movie) => (
+           <Link to={`/movies/${movie.id}`}>
+          <div className="result-item" key={movie.id}>
+            <img src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`} alt={movie.title} />
+            <h5>{movie.title}</h5>
+            <p>{movie.release_date}</p>
+          </div> 
+          </Link>         
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,30 @@
+#root { 
+  margin: 0;
+  text-align: center;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: #242424;
+}
+body {
+  margin: 0;
+}
+h1 {
+  font-size: 3.2em;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
 .content{
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .header{
   display: flex;
@@ -15,10 +40,68 @@
 }
 .search-form{
   width: 30vw;
+  background-color: transparent;
+  border-radius: 1rem;
+  border: 1px solid white;
+  color:white;
+  display: inline-flex;
 }
+.search-input{
+  width: 30vw;
+  padding: 1rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color:white;
+}
+.search-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 1rem ;
+  cursor: pointer;
+}
+.fa-search {
+  margin-right: 1rem; 
+}
+.search-input::placeholder{
+  color: white;
+}
+.results-list{
+ background-color: rgb(212, 44, 72);
+ position: absolute; 
+ width: 30vw;
+}
+.result-item{
+  border: 1px solid white ;
+  color: white;
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+ text-align: left;
+}
+.result-item:hover{
+ color:  rgb(212, 44, 72);
+ background-color: white;
+ cursor: pointer;
+}
+.result-item>img{
+  height: 5rem;
+  grid-area: 1/1/3/2;
+  margin-right: 1rem;
+ }
+ .result-item>h5{
+  grid-area: 1/2/2/3;
+  margin: 0;
+ }
+ .result-item>p{
+  grid-area: 2/2/3/3;
+ }
 .featuer-movie{
   width: 30vw;
   text-align: left;
+  margin-top: 5rem;
 }
 .featuer-movie>h1{
   margin-bottom: 0;
@@ -52,7 +135,10 @@
 .movie-grid{
   background-color: white;
   color: black;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .featured-header{
   display: flex;
@@ -62,18 +148,20 @@
 .movie-grid-items{
   display: grid;
   grid-template-columns: repeat(4,1fr);
+  gap: 4rem;
 }
 .poster-movie{
-  margin: 2rem;
+  justify-self: left;
   text-align: left;
 }
-.poster-movie>img{
+[data-testid="movie-poster"]{
   width: 15rem;
 }
 .poster-movie>h3,.poster-movie>p{
   margin: 0
 }
 .socials-div{
+  margin-top: 5REM;
   display: flex;
   justify-content: center;
 }
@@ -83,59 +171,70 @@
 .terms-div>a{
   margin: 1rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#root {
-  
-  margin: 0;
+.movie-deails-page{
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie-details{
+  padding: 1rem;
+  width: 45rem;
+  text-align: left;
+}
+.movie-details>img{
+  height: 25rem;
+  border-radius: 2rem;
+}
+.movie-details-row{
+  display: flex;
+  align-items: center;
+}
+.movie-details-row>*{
+  margin: 1rem;
+}
+.navbar{
+  width: 12rem;
+  border: 2px solid white;
+  border-left: none;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius:2rem ;
+}
+.navbar>img{
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.nav-item{
+  display: flex;
+  align-items: center;
+}
+.nav-item-active{
+  color: #b11f43;
+  background-color: #f8e8eb;
+  border-right: 0.5rem solid #b11f43;
+}
+.nav-item>img{
+  height: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.nav-item-quiz{
+  padding: 1rem;
+ border: 1px solid #d3b2ba;
+ border-radius: 1rem;
+ text-align: left;
+ margin: 1rem;
+}
+.nav-item-quiz>div{
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: small;
+  background-color: #f0c8d1;
+  border-radius: 1rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  color: #ae3852;
 }

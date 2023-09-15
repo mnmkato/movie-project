@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import imdb from './assets/imdb.svg'
 import tomato from './assets/tomato.svg'
 import play from './assets/play.svg'
 
-const MovieDetails = () => {
+const MovieBackdrop = () => {
   const [movie, setMovie] = useState({});
-  const movieId = 458156
+  const movieId = 238
 
   useEffect(() => {
     axios
@@ -24,7 +23,6 @@ const MovieDetails = () => {
       });
   }, [movieId]);
   return (
-    <div>
     <div className='featuer-movie'>
       <h1>{movie.title}</h1>
       <div className="ratings">
@@ -43,8 +41,7 @@ const MovieDetails = () => {
         <p>WATCH TRAILER</p>
       </div>      
     </div>
-    </div> 
   );
 };
 
-export default MovieDetails;
+export default MovieBackdrop;
